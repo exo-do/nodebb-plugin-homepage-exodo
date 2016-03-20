@@ -18,11 +18,11 @@
     "labels"
   ],
   "author": {
-    "name": "psychobunny",
-    "email": "psycho.bunny@hotmail.com"
+    "name": "Insiderto",
+    "email": "alonixg47@gmail.com"
   },
   "nbbpm": {
-    "compatibility": "^1..0"
+    "compatibility": "^1.0.0"
   },
   "license": "BSD-2-Clause",
   "bugs": {
