@@ -1,5 +1,5 @@
 {
-  "name": "nodebb-plugin-custom-homepage",
+  "name": "nodebb-plugin-custom-homepg",
   "version": "0.1.18",
   "description": "Allows you to define a custom homepage for NodeBB",
   "main": "./library.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/psychobunny/nodebb-plugin-custom-homepage"
+    "url": "https://github.com/Insiderto/nodebb-plugin-custom-homepage"
   },
   "keywords": [
     "nodebb",
@@ -22,11 +22,11 @@
     "email": "psycho.bunny@hotmail.com"
   },
   "nbbpm": {
-    "compatibility": "^0.7.0"
+    "compatibility": "^1..0"
   },
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/psychobunny/nodebb-plugin-custom-homepage/issues"
+    "url": "https://github.com/Insiderto/nodebb-plugin-custom-homepage/edit/issues"
   },
   "readme": "",
   "readmeFilename": "README.md",
