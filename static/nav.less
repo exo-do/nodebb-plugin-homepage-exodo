@@ -1,0 +1,48 @@
+
+@primary: #CF246A;
+@topic-header: #323a45;
+
+/* -------------------------------------- PAGINACION ----------------------------------------*/
+//paginacion nueva de exodo
+.slynav { margin: 5px auto 5px auto; }
+
+.slynav button { background: transparent; border: 0; color: black; opacity: .5;}
+.slynav button a { color:black;}
+//.slynav button:hover, .slynav button:hover { opacity: 1; }
+//.slynav button:disabled, .slynav button:disabled { opacity: .2; }
+
+.slynav .forward, .slynav .backward { float: left;
+
+	//width: 5%;
+	height: 25px;
+	line-height: 20px;
+	font-size: 20px;
+	padding: 2px 0px 3px 0px;
+ }
+.slynav .forward { float: right;
+}
+
+.slynav .frame { margin: 0 auto; width: 100%; height: 50px; line-height: 50px; overflow: hidden; text-shadow: none; }
+.slynav .frame ul { list-style: none; margin: 0; padding: 0; height: 100%; font-size: 15px; }
+.slynav .frame ul li { float: left; width: 50px; height: 100%; margin: 0 1px 0 0; background: #eee; text-align: center; cursor: pointer; }
+.slynav .frame ul li.active { color: #fff; background: @primary; }
+.slynav .frame ul li a { line-height: 25px; color: @topic-header; }
+.slynav .frame ul li.active a { color: #fff; }
+.slynav .frame ul li a:hover { color: @topic-header; }
+.slynav .frame ul li.active a:hover { color: #fff }
+
+.slynav .scrollbar { margin: 0 auto 2px; width: auto; height: 5px; line-height: 0; }
+.slynav .scrollbar .handle { width: 100px; height: 100%; background: @topic-header; cursor: pointer; }
+.slynav .scrollbar .handle .mousearea { position: absolute; top: -9px; left: 0; width: 100%; height: 50px; }
+
+.slynav .pages { list-style: none; margin: 20px 0; padding: 0; text-align: center; }
+.slynav .pages li { display: inline-block; width: 14px; height: 14px; margin: 0 4px; text-indent: -999px; border-radius: 10px; cursor: pointer; overflow: hidden;
+	background: #fff; box-shadow: inset 0 0 0 1px rgba(0,0,0,.2);
+}
+.slynav .pages li:hover { background: #aaa; }
+.slynav .pages li.active { background: #666; }
+
+.slynav .controls { margin: 0px 0 0; text-align: center; }
+.slynav .controls .divider { display: inline-block; margin: 0 10px; }
+.slynav .controls button { line-height: 32px; vertical-align: middle; font-family: Novecento, sans-serif; }
+.slynav .controls button i { position: relative; top: -2px; margin: 0px; padding: 0; font-size: 32px; vertical-align: middle; }

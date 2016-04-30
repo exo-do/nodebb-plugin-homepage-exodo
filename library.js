@@ -2,14 +2,28 @@
 	"use strict";
 
 	var Plugin = {};
-
+	Plugin = module.exports;
+	var categories = require.main.require('./src/categories');
+	// init hook
 	Plugin.serveHomepage = function(params){
-		params.res.render('homepage', {
-			template: {
-				name: 'homepage'
-			}
-		});
+		renderExampleCategories(params.req, params.res, params.next);
 	};
+
+	function renderExampleCategories(req, res, next) {
+		// Get all the visible categories.
+		categories.getCategoriesByPrivilege('cid:0:children', req.uid, 'find', function(err, categoryData) {
+			if (err) return next(err);
+
+			// Put the categories in a tree format.
+			categories.flattenCategories([], categoryData);
+
+			// Send the data to the template. `homepage`
+			res.render('homepage', {
+				template: { name: 'homepage' },
+				categories: categoryData
+			});
+		});
+	}
 
 	Plugin.addListing = function(data, callback){
 		data.routes.push({

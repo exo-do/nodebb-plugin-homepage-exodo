@@ -2,7 +2,7 @@
 	"id": "nodebb-plugin-homepage-exodo",
 	"name": "Custom Homepage for NodeBB Exodus",
 	"description": "Allows you to define a custom homepage for NodeBB",
-	"url": "https://github.com/psychobunny/nodebb-plugin-custom-homepage",
+	"url": "https://github.com/exo-do/nodebb-plugin-homepage-exodo",
 	"library": "./library.js",
 	"hooks": [
 		{
@@ -16,7 +16,14 @@
 		},
 		{
 			"hook": "filter:homepage.get", "method": "addListing"
+		},
+		{
+			"hook": "static:app.load",  "method": "init"
 		}
 	],
-	"templates": "./templates"
+	"templates": "./templates",
+	"scripts": [
+		"lib/sly.min.js"
+	],
+	"less": ["static/nav.less"]
 }
