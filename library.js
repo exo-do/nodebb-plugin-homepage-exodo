@@ -1,12 +1,13 @@
-(function(module) {
+(function(Plugin) {
 	"use strict";
 
-	var Plugin = {};
-	Plugin = module.exports;
 	var categories = require.main.require('./src/categories');
+	var topics = require.main.require('./src/topics');
+	var meta = require.main.require('./src/meta');
 	// init hook
 	Plugin.serveHomepage = function(params){
 		renderExampleCategories(params.req, params.res, params.next);
+		renderExampleRecent(params.req, params.res, params.next);
 	};
 
 	function renderExampleCategories(req, res, next) {
@@ -22,6 +23,21 @@
 				template: { name: 'homepage' },
 				categories: categoryData
 			});
+		});
+	}
+
+	function renderExampleRecent(req, res, next){
+
+		var stop = (parseInt(meta.config.topicsPerList, 10) || 20) - 1;
+
+		topics.getTopicsFromSet('topics:recent', req.uid, 0, stop, function(err, data) {
+			if (err) return next(err);
+
+		/*	res.render('homepage', {
+				template: { name: 'homepage' },
+				topics: data.topics
+			});
+		*/
 		});
 	}
 
@@ -75,5 +91,4 @@
 		callback(null, areas);
 	};
 
-	module.exports = Plugin;
-}(module));
+}(exports));
