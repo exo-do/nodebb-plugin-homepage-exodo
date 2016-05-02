@@ -7,23 +7,32 @@
 	// init hook
 	Plugin.serveHomepage = function(params){
 		renderExampleCategories(params.req, params.res, params.next);
-		renderExampleRecent(params.req, params.res, params.next);
+		//renderExampleRecent(params.req, params.res, params.next);
 	};
 
 	function renderExampleCategories(req, res, next) {
 		// Get all the visible categories.
+		var stop = (parseInt(meta.config.topicsPerList, 10) || 20) - 1;
+
 		categories.getCategoriesByPrivilege('cid:0:children', req.uid, 'find', function(err, categoryData) {
 			if (err) return next(err);
 
 			// Put the categories in a tree format.
 			categories.flattenCategories([], categoryData);
+			var categoriasLocales = {};
+			categoriasLocales.cat = categoryData;
+			topics.getTopicsFromSet('topics:recent', req.uid, 0, stop, function(err, data) {
+			if (err) return next(err);
+			categoriasLocales.topics= data.topics;
 
-			// Send the data to the template. `homepage`
 			res.render('homepage', {
 				template: { name: 'homepage' },
-				categories: categoryData
+				topics: categoriasLocales.topics,
+				categories: categoriasLocales.cat
 			});
+
 		});
+	});
 	}
 
 	function renderExampleRecent(req, res, next){

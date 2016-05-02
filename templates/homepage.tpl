@@ -77,7 +77,7 @@ jQuery(function ($) {
 </div>
 </div>
 
-
+<div class="category">
 <ul component="category" class="topic-list" itemscope itemtype="http://www.schema.org/ItemList" data-nextstart="{nextStart}">
 	<meta itemprop="itemListOrder" content="descending">
 	<!-- BEGIN topics -->
@@ -188,7 +188,7 @@ jQuery(function ($) {
 	</li>
 	<!-- END topics -->
 </ul>
-
+</div>
 
 
 
