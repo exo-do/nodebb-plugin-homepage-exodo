@@ -35,6 +35,7 @@
 	});
 	}
 
+/*
 	function renderExampleRecent(req, res, next){
 
 		var stop = (parseInt(meta.config.topicsPerList, 10) || 20) - 1;
@@ -42,13 +43,14 @@
 		topics.getTopicsFromSet('topics:recent', req.uid, 0, stop, function(err, data) {
 			if (err) return next(err);
 
-		/*	res.render('homepage', {
+			res.render('homepage', {
 				template: { name: 'homepage' },
 				topics: data.topics
 			});
-		*/
+
 		});
 	}
+*/
 
 	Plugin.addListing = function(data, callback){
 		data.routes.push({
