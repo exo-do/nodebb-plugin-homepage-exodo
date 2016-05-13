@@ -86,14 +86,17 @@ jQuery(function ($) {
 		<div class="frame framesidebar text-center hidden-xs hidden-sm">
 			<ul class="slidee">
 				<!-- BEGIN categories -->
-				<li style="{function.generateCategoryBackground};">
-					<a href="{config.relative_path}/category/{categories.slug}" itemprop="url" style="color: #fff;"><i class="fa fa-fw {categories.icon}"></i></a>
-				</li>
-
+				<a href="{config.relative_path}/category/{categories.slug}" itemprop="url" style="color: #fff;">
+					<li style="{function.generateCategoryBackground};">
+						<i class="fa fa-fw {categories.icon}"></i>
+					</li>
+				</a>
 				<!-- BEGIN categories.children -->
-				<li style="{function.generateCategoryBackground};">
-					<a href="{config.relative_path}/category/{categories.children.slug}" itemprop="url" style="color: #fff;"><i class="fa fa-fw {categories.children.icon}"></i></a>
-				</li>
+				<a href="{config.relative_path}/category/{categories.children.slug}" itemprop="url" style="color: #fff;">
+					<li style="{function.generateCategoryBackground};">
+						<i class="fa fa-fw {categories.children.icon}"></i>
+					</li>
+				</a>
 				<!-- END categories.children -->
 				<!-- END categories -->
 			</ul>
