@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-homepage-exodo",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "description": "Allows you to define a custom homepage for NodeBB",
   "main": "./library.js",
   "scripts": {
