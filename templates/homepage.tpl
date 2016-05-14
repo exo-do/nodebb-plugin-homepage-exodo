@@ -156,7 +156,7 @@ jQuery(function ($) {
 
 							<!-- IF !template.category -->
 							<small>
-								<a href="{config.relative_path}/category/{topics.category.slug}"><span class="fa-stack fa-lg"><i style="color:{topics.category.bgColor};"class="fa fa-circle fa-stack-2x"></i><i style="color:{topics.category.color};" class="fa {topics.category.icon} fa-stack-1x"></i></span> {topics.category.name}</a> &bull;
+								<a href="{config.relative_path}/category/{topics.category.slug}"><span class="fa-stack fa-lg"><i style="color:{topics.category.bgColor};"class="fa fa-circle fa-stack-2x"></i><i style="color:{topics.category.color};" class="fa {topics.category.icon} fa-stack-1x"></i></span><span class="hidden-xs"> {topics.category.name}</span></a> &bull;
 							</small>
 							<!-- ENDIF !template.category -->
 
