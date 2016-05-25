@@ -83,25 +83,6 @@ jQuery(function ($) {
 		</ul>
 	</div>
 
-		<div class="frame framesidebar text-center hidden-xs hidden-sm">
-			<ul class="slidee">
-				<!-- BEGIN categories -->
-				<a href="{config.relative_path}/category/{categories.slug}" itemprop="url" style="color: #fff;">
-					<li style="{function.generateCategoryBackground};">
-						<i class="fa fa-fw {categories.icon}"></i>
-					</li>
-				</a>
-				<!-- BEGIN categories.children -->
-				<a href="{config.relative_path}/category/{categories.children.slug}" itemprop="url" style="color: #fff;">
-					<li style="{function.generateCategoryBackground};">
-						<i class="fa fa-fw {categories.children.icon}"></i>
-					</li>
-				</a>
-				<!-- END categories.children -->
-				<!-- END categories -->
-			</ul>
-		</div>
-
 
 </div>
 
@@ -109,7 +90,7 @@ jQuery(function ($) {
 	<div class="col-md-9 col-xs-12" no-widget-class="col-lg-12 col-xs-12" no-widget-target="hp-sidebar">
 
 		<div class="category">
-
+			<div class="category-bar"><p class="hidden-xs">[[pages:recent]]</p></div>
 			<ul component="category" class="topic-list" itemscope itemtype="http://www.schema.org/ItemList" data-nextstart="{nextStart}">
 				<meta itemprop="itemListOrder" content="descending">
 
@@ -228,15 +209,54 @@ jQuery(function ($) {
 		</div>
 	</div>
 
+
 	<div class="col-md-3 col-xs-12">
 
+				<div id="effect-1"  class="framesidebar text-center hidden-xs hidden-sm">
+						<!-- BEGIN categories -->
+						<div style="{function.generateCategoryBackground};" class="{categories.class} tiles img">
+							<a href="{config.relative_path}/category/{categories.slug}" data-toggle="tooltip" title="{categories.name}" data-placement="top" itemprop="url" style="color: {categories.color}; display: block;">
 
+								<i class="fa fa-fw fa-2x {categories.icon}" style="vertical-align: middle;"></i>
+
+								<div class="overlay">
+            				<span style"font-size: 11px vertical-align: middle;">{categories.name}</span>
+
+        				</div>
+							</a>
+						</div>
+						<!-- BEGIN categories.children -->
+							<div style="{function.generateCategoryBackground};" class="{categories.class} tiles img">
+								<a href="{config.relative_path}/category/{categories.children.slug}" data-toggle="tooltip" title="{categories.children.name}" data-placement="top" itemprop="url" style="color: {categories.children.color}; display: block;">
+
+									<i class="fa fa-fw fa-2x {categories.children.icon}" style="vertical-align: middle;"></i>
+
+									<div class="overlay">
+	            				<span style"font-size: 11px vertical-align: middle;">{categories.children.name}</span>
+
+	        				</div>
+								</a>
+							</div>
+						<!-- END categories.children -->
+						<!-- END categories -->
+		 	</div>
+
+
+			<div>
+				<!-- IF loggedIn -->
+				<button id="new_topic" class="btn btn-primary">[[category:new_topic_button]]</button>
+				<!-- ELSE -->
+				<a href="{config.relative_path}/login" class="btn btn-primary">[[category:guest-login-post]]</a>
+				<!-- ENDIF loggedIn -->
+			</div>
 
 		<div widget-area="hp-sidebar">
 			<!-- BEGIN widgets -->
 			{widgets.html}
 			<!-- END widgets -->
 		</div>
+
+
 	</div>
 
 </div>
@@ -246,3 +266,43 @@ jQuery(function ($) {
 	{widgets.html}
 	<!-- END widgets -->
 </div>
+
+<!-- categories hover effects -->
+<script>
+    $(document).ready(function(){
+    if (Modernizr.touch) {
+        // show the close overlay button
+        $(".close-overlay").removeClass("hidden");
+        // handle the adding of hover class when clicked
+        $(".img").click(function(e){
+            if (!$(this).hasClass("hover")) {
+                $(this).addClass("hover");
+            }
+        });
+        // handle the closing of the overlay
+        $(".close-overlay").click(function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            if ($(this).closest(".img").hasClass("hover")) {
+                $(this).closest(".img").removeClass("hover");
+            }
+        });
+    } else {
+        // handle the mouseenter functionality
+        $(".img").mouseenter(function(){
+            $(this).addClass("hover");
+        })
+        // handle the mouseleave functionality
+        .mouseleave(function(){
+            $(this).removeClass("hover");
+        });
+    }
+});
+</script>
+<!--
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+-->

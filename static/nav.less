@@ -8,19 +8,6 @@
 
 .slynav button { background: transparent; border: 0; color: black; opacity: .5;}
 .slynav button a { color:black;}
-//.slynav button:hover, .slynav button:hover { opacity: 1; }
-//.slynav button:disabled, .slynav button:disabled { opacity: .2; }
-
-.slynav .forward, .slynav .backward { float: left;
-
-	//width: 5%;
-	height: 25px;
-	line-height: 20px;
-	font-size: 20px;
-	padding: 2px 0px 3px 0px;
- }
-.slynav .forward { float: right;
-}
 
 .slynav .frame { margin: 0 auto; width: 100%; height: 50px; line-height: 50px; overflow: hidden; text-shadow: none; }
 .slynav .frame ul { list-style: none; margin: 0; padding: 0; height: 100%; font-size: 15px; }
@@ -36,108 +23,304 @@
 .slynav .scrollbar .handle .mousearea { position: absolute; top: -9px; left: 0; width: 100%; height: 50px; }
 
 
-.slynav .framesidebar { height: 65px; line-height: 65px; overflow: inherit; text-align: center;}
-.slynav .framesidebar ul { display: inline-block; }
-.slynav .framesidebar ul li { width: 65px; }
+.framesidebar { overflow: inherit; text-align: center; display: inline-block;}
+.framesidebar .tiles { line-height: 65px; }
 /* -------------------------------------- HILOS ----------------------------------------*/
 
-.category {
-
-	.topic-list {
-		margin-top: 0px;
-	}
-
-	> ul {
-
-		> li {
-			padding-top: 0px;
-			padding-bottom: 0px;
-			min-height: 52px;
-			border-top: 1px solid #ddd  !important;
-			border-left: 1px solid #ddd ;
-			border-right: 1px solid #ddd ;
-			list-style: none;
-			background-color: #f0f0f0; //cambiar
-
-			.teaser {
-				//width: 30%;
-				.card {
-					height: 45px;
-					padding-top: 3px;
-
-					.post-content {
-						font-size:11px;
-					}
-				}
-			}
-
-			.content {
-
-				padding-left: 15px;
-				padding-right: 10px;
-
-				h2 {
-					margin-left: 55px;
-					line-height: 15px;
-					padding-top: 5px;
-					padding-bottom: 5px;
-					a {
-						font-size: 13px;
-					}
-				}
-
-				.avatar {
-				padding-top: 5px;
-
-				.user-icon,.user-img {
-					width: 40px;
-					height: 40px;
-					line-height: 40px;
-					margin-right: 0px;
-					}
-				}
-
-				.icon {
-					min-width: 40px;
-					min-height: 40px;
-					margin-top: 3px
-				}
-			}
-			&:last-child {
-				border-bottom: 1px solid #ddd !important;
-			}
-		}
-	}
+.slynav .tooltip {
+	//left: 50px !important;
+	//top: 30px !important;
+	//position: relative !important;
+  display: inline-block !important;
+}
 
 
-	.category-bar {
-		background: @topic-header;
-		display: block;
-		line-height: 30px;
-		width: auto;
-		margin-left: -15px;
-		margin-right: -15px;
-
-		p {
-			color: #fff; //cambiar
-			margin: 0;
-			text-align: center;
-			font-size: 15px;
-		}
-	}
+/* ------------------------------categories effects --------------------------------*/
 
 
-	.stats {
-		line-height: 15px;
-		padding-top: 5px;
-		margin-top: 5px;
-		font-size: 15px;
-		width: 5%;
-		padding-right: 2px;
-		padding-left: 2px;
-		small {
-			font-size: 12px;
-		}
-	}
+/* ============================================================
+  GLOBAL
+============================================================ */
+.effects {
+  padding-left: 15px;
+}
+.effects .img {
+  position: relative;
+  float: left;
+  margin-bottom: 5px;
+  width: 25%;
+  overflow: hidden;
+}
+.effects .img:nth-child(n) {
+  margin-right: 5px;
+}
+.effects .img:first-child {
+  margin-left: -15px;
+}
+.effects .img:last-child {
+  margin-right: 0;
+}
+.effects .img img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  height: auto;
+}
 
+.overlay {
+  display: block;
+  position: absolute;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+a.close-overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 45px;
+  text-align: center;
+  background-color: #000;
+  cursor: pointer;
+}
+a.close-overlay.hidden {
+  display: none;
+}
+
+a.expand {
+  display: block;
+  position: absolute;
+  z-index: 100;
+  width: 60px;
+  height: 60px;
+  border: solid 5px #fff;
+  text-align: center;
+  color: #fff;
+  line-height: 50px;
+  font-weight: 700;
+  font-size: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 30px;
+}
+
+/* ============================================================
+  EFFECT 1 - SLIDE IN BOTTOM
+============================================================ */
+#effect-1 .overlay {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 0;
+}
+#effect-1 .overlay a.expand {
+  left: 0;
+  right: 0;
+  bottom: 50%;
+  margin: 0 auto -30px auto;
+}
+#effect-1 .img.hover .overlay {
+  height: 100%;
+}
+
+/* ============================================================
+  EFFECT 2 - SLIDE IN TOP
+============================================================ */
+#effect-2 .overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 0;
+}
+#effect-2 .overlay a.expand {
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin: -30px auto 0 auto;
+}
+#effect-2 .img.hover .overlay {
+  height: 100%;
+}
+
+/* ============================================================
+  EFFECT 3 - SLIDE IN LEFT
+============================================================ */
+#effect-3 .overlay {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+}
+#effect-3 .overlay a.expand {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin: auto 0 auto -30px;
+}
+#effect-3 .img.hover .overlay {
+  width: 100%;
+}
+
+/* ============================================================
+  EFFECT 4 - SLIDE IN RIGHT
+============================================================ */
+#effect-4 .overlay {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+}
+#effect-4 .overlay a.expand {
+  top: 0;
+  bottom: 0;
+  right: 50%;
+  margin: auto -30px auto 0;
+}
+#effect-4 .img {
+  overflow: hidden;
+}
+#effect-4 .img.hover .overlay {
+  width: 100%;
+}
+
+/* ============================================================
+  EFFECT 5 - ICON BORDER ANIMATE
+============================================================ */
+#effect-5 .overlay {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+}
+#effect-5 .overlay a.expand {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#effect-5 .img.hover .overlay {
+  opacity: 1;
+}
+#effect-5 .img.hover .overlay a.expand {
+  width: 60px;
+  height: 60px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 30px;
+}
+
+/* ============================================================
+  EFFECT 6 - ICON BOUNCE IN
+============================================================ */
+#effect-6 .overlay {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+}
+#effect-6 .overlay a.expand {
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: 0 auto;
+  opacity: 0;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#effect-6 .img.hover .overlay {
+  opacity: 1;
+}
+#effect-6 .img.hover .overlay a.expand {
+  top: 50%;
+  margin-top: -30px;
+  opacity: 1;
+}
+
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Media Queries
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+@media only screen and (max-width: 1100px) {
+  .effects {
+    padding-left: 5px;
+  }
+  .effects .img {
+    width: 50%;
+  }
+  .effects .img:nth-child(n) {
+    margin-right: 5px;
+  }
+  .effects .img:first-child {
+    margin-left: 0;
+  }
+  .effects .img:nth-child(2n-1) {
+    margin-left: -5px;
+  }
+  .effects .img:nth-child(2n) {
+    margin-right: 0;
+  }
+  .effects .img:last-child {
+    margin-right: 0;
+  }
+}
+@media only screen and (max-width: 520px) {
+  .effects .img {
+    width: 100%;
+  }
+  .effects .img:nth-child(n) {
+    margin-right: 0;
+  }
+  .effects .img:first-child {
+    margin-left: 0;
+  }
+  .effects .img:nth-child(2n-1) {
+    margin-left: 0;
+  }
+  .effects .img:nth-child(2n) {
+    margin-right: 0;
+  }
+  .effects .img:last-child {
+    margin-right: 0;
+  }
+  .effects .img img {
+    margin: 0 auto;
+  }
 }
