@@ -4,6 +4,7 @@
 	var categories = require.main.require('./src/categories');
 	var topics = require.main.require('./src/topics');
 	var meta = require.main.require('./src/meta');
+	var User = module.parent.require('./user');
 	// init hook
 	Plugin.serveHomepage = function(params){
 		renderExampleCategories(params.req, params.res, params.next);
@@ -14,25 +15,37 @@
 		// Get all the visible categories.
 		var stop = (parseInt(meta.config.topicsPerList, 10) || 20) - 1;
 
+
+
+
+
 		categories.getCategoriesByPrivilege('cid:0:children', req.uid, 'find', function(err, categoryData) {
+
 			if (err) return next(err);
 
 			// Put the categories in a tree format.
 			categories.flattenCategories([], categoryData);
+
 			var categoriasLocales = {};
 			categoriasLocales.cat = categoryData;
-			topics.getTopicsFromSet('topics:recent', req.uid, 0, stop, function(err, data) {
-			if (err) return next(err);
-			categoriasLocales.topics= data.topics;
 
-			res.render('homepage', {
-				template: { name: 'homepage' },
-				topics: categoriasLocales.topics,
-				categories: categoriasLocales.cat
+			topics.getTopicsFromSet('topics:recent', req.uid, 0, stop, function(err, data) {
+				if (err) return next(err);
+				categoriasLocales.topics= data.topics;
+
+				User.getUserFields(req.uid, ['username','userslug', 'topiccount', 'postcount','reputation','icon:bgColor','icon:text','picture','groupTitle'], function (err, user) {
+				if (err || !user) user = null;
+
+					res.render('homepage', {
+						template: { name: 'homepage' },
+						topics: categoriasLocales.topics,
+						categories: categoriasLocales.cat,
+						user: user
+					});
+				});
 			});
 
 		});
-	});
 	}
 
 /*

@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-homepage-exodo",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "description": "Allows you to define a custom homepage for NodeBB",
   "main": "./library.js",
   "scripts": {
@@ -18,11 +18,11 @@
     "labels"
   ],
   "author": {
-    "name": "Insiderto",
-    "email": "alonixg47@gmail.com"
+    "name": "Exomarty, original fork from Insiderto",
+    "email": "contacto@exo.do"
   },
   "nbbpm": {
-    "compatibility": "^1.0.0"
+    "compatibility": "^1.1.0"
   },
   "license": "BSD-2-Clause",
   "bugs": {
@@ -32,5 +32,11 @@
   "readmeFilename": "README.md",
   "dependencies": {
     "validator": "^3.39.0"
+  },
+  "scripts": {
+    "2npm": "publish"
+  },
+  "devDependencies": {
+    "publish": "0.5.0"
   }
 }

@@ -29,7 +29,6 @@ jQuery(function ($) {
 			dragHandle: 1,
 			dynamicHandle: 1,
 			clickBar: 1,
-			keyboardNavBy: 'items',
 			prevPage: $wrap.find('.prevPage'),
 			nextPage: $wrap.find('.nextPage')
 
@@ -51,6 +50,13 @@ jQuery(function ($) {
 
 </script>
 
+<script>
+			$(".hover").mouseleave(
+			  function () {
+			    $(this).removeClass("hover");
+			  }
+			);
+</script>
 
 
 <div widget-area="hp-header">
@@ -87,7 +93,7 @@ jQuery(function ($) {
 </div>
 
 <div class="row">
-	<div class="col-md-9 col-xs-12" no-widget-class="col-lg-12 col-xs-12" no-widget-target="hp-sidebar">
+	<div class="col-md-9 col-xs-12" no-widget-target="hp-sidebar">
 
 		<div class="category">
 			<div class="category-bar"><p class="hidden-xs">[[pages:recent]]</p></div>
@@ -241,12 +247,41 @@ jQuery(function ($) {
 						<!-- END categories -->
 		 	</div>
 
+			</br>
+			<!-- IF loggedIn -->
+			<figure class="snip1344">
 
-			<div>
+				<a href="{config.relative_path}/user/{user.userslug}">
+				<!-- IF user.picture -->
+					<img src="{user.picture}" class="background" />
+					<img src="{user.picture}" class="profile avatar" />
+				<!-- ELSE -->
+					<img src="http://i.imgur.com/9eKvnnV.jpg" class="background" />
+					<div class="profile avatar avatar-lg" style="background-color: {user.icon:bgColor};" >{user.icon:text}</div>
+				<!-- ENDIF user.picture -->
+				</a>
+
+			  <figcaption>
+			    <h3>{user.username}<span>{user.groupTitle}</span></h3>
+			    <div class="icons">
+						<a href="/user/{user.userslug}/best" title="[[global:reputation]]"> <i class="ion-ios-star-outline"></i></a>
+						<small class="human-readable-number" title="{user.reputation}">{user.reputation}</small>
+						<a href="/user/{user.userslug}/topics" title="[[global:topics]]"><i class="ion-ios-chatbubble-outline"></i></a>
+						<small class="human-readable-number" title="{user.topiccount}">{user.topiccount}</small>
+						<a href="/user/{user.userslug}/posts" title="[[global:posts]]"> <i class="ion-ios-compose-outline"></i></a>
+						<small class="human-readable-number" title="{user.postcount}">{user.postcount}</small>
+					</div>
+
+			  </figcaption>
+			</figure>
+			<!-- ENDIF loggedIn -->
+			</br>
+			
+			<div id="home_tools">
 				<!-- IF loggedIn -->
 				<button id="new_topic" class="btn btn-primary">[[category:new_topic_button]]</button>
 				<!-- ELSE -->
-				<a href="{config.relative_path}/login" class="btn btn-primary">[[category:guest-login-post]]</a>
+				<a href="{config.relative_path}/login" class="btn btn-primary">[[global:login]]</a>
 				<!-- ENDIF loggedIn -->
 			</div>
 
