@@ -13,10 +13,7 @@
 
 	function renderExampleCategories(req, res, next) {
 		// Get all the visible categories.
-		var stop = (parseInt(meta.config.topicsPerList, 10) || 20) - 1;
-
-
-
+		var stop = (parseInt(meta.config.topicsPerList, 10) || 22) - 1;
 
 
 		categories.getCategoriesByPrivilege('cid:0:children', req.uid, 'find', function(err, categoryData) {
