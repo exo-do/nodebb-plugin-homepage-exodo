@@ -137,13 +137,15 @@ jQuery(function ($) {
 						</div>
 
 						<h2 component="topic/header" class="title">
-							<i component="topic/pinned" class="fa fa-thumb-tack <!-- IF !topics.pinned -->hide<!-- ENDIF !topics.pinned -->"></i>
-							<i component="topic/locked" class="fa fa-lock <!-- IF !topics.locked -->hide<!-- ENDIF !topics.locked -->"></i>
 
 							<!-- IF !topics.noAnchor -->
-							<div class="topictitle"><a href="{config.relative_path}/topic/{topics.slug}<!-- IF topics.bookmark -->/{topics.bookmark}<!-- ENDIF topics.bookmark -->" itemprop="url">{topics.title}</a></div>
+							<div class="topictitle"><a href="{config.relative_path}/topic/{topics.slug}<!-- IF topics.bookmark -->/{topics.bookmark}<!-- ENDIF topics.bookmark -->" itemprop="url">
+								<i component="topic/pinned" class="fa fa-thumb-tack <!-- IF !topics.pinned -->hide<!-- ENDIF !topics.pinned -->"></i>
+								<i component="topic/locked" class="fa fa-lock <!-- IF !topics.locked -->hide<!-- ENDIF !topics.locked -->"></i> {topics.title}</a></div>
 							<!-- ELSE -->
-							<div class="topictitle">{topics.title}</div>
+							<div class="topictitle">
+								<i component="topic/pinned" class="fa fa-thumb-tack <!-- IF !topics.pinned -->hide<!-- ENDIF !topics.pinned -->"></i>
+								<i component="topic/locked" class="fa fa-lock <!-- IF !topics.locked -->hide<!-- ENDIF !topics.locked -->"></i> {topics.title}</div>
 							<!-- ENDIF !topics.noAnchor -->
 
 							<!-- IF !template.category -->
