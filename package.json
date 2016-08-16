@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-homepage-exodo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Allows you to define a custom homepage for NodeBB",
   "main": "./library.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "email": "contacto@exo.do"
   },
   "nbbpm": {
-    "compatibility": "^1.0.0"
+    "compatibility": "^1.1.0"
   },
   "license": "BSD-2-Clause",
   "bugs": {
