@@ -65,7 +65,7 @@ jQuery(function ($) {
 	<!-- END widgets -->
 </div>
 
-<div class="slynav">
+<div class="slynav preventSlideOut">
 
 	<div class="scrollbar visible-xs visible-sm">
 		<div class="handle">
