@@ -79,12 +79,13 @@ jQuery(function ($) {
 			<li style="{function.generateCategoryBackground};">
 				<a href="{config.relative_path}/category/{categories.slug}" itemprop="url" style="color: #fff;"><i class="fa fa-fw {categories.icon}"></i></a>
 			</li>
-
+			<!--
 			<!-- BEGIN categories.children -->
 			<li style="{function.generateCategoryBackground};">
 				<a href="{config.relative_path}/category/{categories.children.slug}" itemprop="url" style="color: #fff;"><i class="fa fa-fw {categories.children.icon}"></i></a>
 			</li>
 			<!-- END categories.children -->
+			-->
 			<!-- END categories -->
 		</ul>
 	</div>
@@ -255,6 +256,7 @@ jQuery(function ($) {
         				</div>
 							</a>
 						</div>
+						<!--
 						<!-- BEGIN categories.children -->
 							<div style="{function.generateCategoryBackground};" class="{categories.class} tiles img">
 								<a href="{config.relative_path}/category/{categories.children.slug}" data-toggle="tooltip" title="{categories.children.name}" data-placement="top" itemprop="url" style="color: {categories.children.color}; display: block;">
@@ -268,6 +270,7 @@ jQuery(function ($) {
 								</a>
 							</div>
 						<!-- END categories.children -->
+						-->
 						<!-- END categories -->
 		 	</div>
 
