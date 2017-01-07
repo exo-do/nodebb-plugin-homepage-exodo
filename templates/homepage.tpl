@@ -79,8 +79,8 @@ jQuery(function ($) {
 			<li style="{function.generateCategoryBackground};">
 				<a href="{config.relative_path}/category/{categories.slug}" itemprop="url" style="color: #fff;"><i class="fa fa-fw {categories.icon}"></i></a>
 			</li>
-			<!--
-			<!-- BEGIN categories.children -->
+
+			<!-- <!-- BEGIN categories.children -->
 			<li style="{function.generateCategoryBackground};">
 				<a href="{config.relative_path}/category/{categories.children.slug}" itemprop="url" style="color: #fff;"><i class="fa fa-fw {categories.children.icon}"></i></a>
 			</li>
@@ -94,9 +94,9 @@ jQuery(function ($) {
 </div>
 
 <div class="row">
-	<div class="col-md-9 col-xs-12" no-widget-target="hp-sidebar">
+	<div class="col-lg-9 col-md-10 col-sm-12 col-xs-12 category" no-widget-target="hp-sidebar">
 
-		<div class="category">
+
 			<div class="category-bar"><p class="hidden-xs">[[pages:recent]]</p></div>
 			<ul component="category" class="topic-list" itemscope itemtype="http://www.schema.org/ItemList" data-nextstart="{nextStart}">
 				<meta itemprop="itemListOrder" content="descending">
@@ -230,7 +230,7 @@ jQuery(function ($) {
 				<!-- END topics -->
 			</ul>
 
-		</div>
+
 
 
 		<div widget-area="hp-content">
@@ -241,7 +241,7 @@ jQuery(function ($) {
 	</div>
 
 
-	<div class="col-md-3 col-xs-12">
+	<div class="col-lg-3 col-md-2 col-sm-12 col-xs-12">
 
 				<div id="effect-1"  class="framesidebar text-center hidden-xs hidden-sm">
 						<!-- BEGIN categories -->
@@ -256,8 +256,7 @@ jQuery(function ($) {
         				</div>
 							</a>
 						</div>
-						<!--
-						<!-- BEGIN categories.children -->
+						<!--<!-- BEGIN categories.children -->
 							<div style="{function.generateCategoryBackground};" class="{categories.class} tiles img">
 								<a href="{config.relative_path}/category/{categories.children.slug}" data-toggle="tooltip" title="{categories.children.name}" data-placement="top" itemprop="url" style="color: {categories.children.color}; display: block;">
 
@@ -269,8 +268,7 @@ jQuery(function ($) {
 	        				</div>
 								</a>
 							</div>
-						<!-- END categories.children -->
-						-->
+						<!-- END categories.children -->-->
 						<!-- END categories -->
 		 	</div>
 
